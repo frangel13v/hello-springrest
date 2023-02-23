@@ -10,7 +10,7 @@ pipeline {
                 sh '''
 		        docker-compose build
                 git tag 1.0.${BUILD_NUMBER}
-                docker tag ghcr.io/frangel13v/hello-springrest/hello-springrest:latest ghcr.io/frangel13v/hello-springrest/springrest:1.0.${BUILD_NUMBER}
+                docker tag ghcr.io/frangel13v/hello-springrest/springrest:latest ghcr.io/frangel13v/hello-springrest/springrest:1.0.${BUILD_NUMBER}
                 '''
                 sshagent(['ssh-github']) {
                     sh('git push git@github.com:frangel13v/hello-springrest.git --tags')
