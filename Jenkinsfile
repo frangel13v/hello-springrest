@@ -23,7 +23,7 @@ pipeline {
 		withCredentials([string(credentialsId: 'github-token', variable: 'GIT_TOKEN')]){
 		    sh 'echo $GIT_TOKEN | docker login ghcr.io -u frangel13v --password-stdin'
                     sh 'docker push ghcr.io/frangel13v/hello-springrest/springrest:1.0.${BUILD_NUMBER}'
-		        }
+		}
             }
         }
 /*        stage('eb Deploy'){
